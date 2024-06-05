@@ -41,7 +41,7 @@ contract SwapToken {
         return address(tokenInstanceMap[tokenName]);
     }
 
-    function swapEthToToken(string memory tokenName) public payble returns(uint) {
+    function swapEthToToken(string memory tokenName) public payable returns(uint) {
         uint inputValue = msg.value;
         uint outputValue = (inputValue / valuetoken) * 10 ** 18; // get quantity token
         require(tokenInstanceMap[tokenName].transfer(msg.sender, outputValue), "Transfer failed");
